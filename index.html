@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minnt's Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- website icon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/download.jpg">
+
+
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+
+<body>
+
+    <div class="cover">
+        <div class="intro-message">
+            <h1><strong> BRIXIE's SPACE</strong> </h1> <!-- Cover Title -->
+            <p>Hello there, welcome to Brixie's Space!🌟You've stumbled upon my little corner of the internet. Get cozy and let me sprinkle a bit of magic into your day. 😊💕</p> <!-- Cover Subtitle -->
+
+            
+
+            <!-- Cover Links -->
+            <div class="button-container">
+                <a href="#section1" class="btn">PROFILE</a>
+                <a href="#section2" class="btn">PROJECT</a>
+                <a href="#section3" class="btn">SKILLS</a>
+            </div>
+            <!-- Arrow Icon -->
+            <div class="arrow-down">
+                &#x21e9; <!-- Unicode for Down Arrow -->
+            </div>
+             
+        </div>
+    </div>
+    
+    <!-- Sections -->
+    <!-- Profile Section -->
+    <div id="section1" class="profile-section" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
+        <h1>All About BRIXIE</h1>
+        <div class="profile-content">
+            <div class="img-container">
+                <img src="assets/img/c.jpg" alt="Profile Picture" class="profile-img"> <!-- Profile Image -->
+            </div>
+            <button class="hire-me"onclick="openGmail()">Hire Me</button>
+
+            <div class="details-container">
+                <div class="profile-details">
+                    <h2><strong>Bridget Nicolette Jose</strong></h2> <!-- Name -->
+                    <p>Hi there! I’m Bridget, a 21-year-old student at Mindanao State University, currently pursuing a Bachelor of Science in Information Technology major in Database.</p> <!-- Description -->
+                    <p><strong>Email:</strong> b.nicolettejose@gmail.com</p> <!-- Email -->
+                    <p><strong>Phone:</strong> (+639) 73-7890-6529</p> <!-- Phone -->
+                    <p><strong>Address:</strong> Brisbane, Australia</p> <!-- Location -->
+                </div>
+                <div class="education-details">
+                    <h2><strong>Educational Background </strong></h2> <!-- Educational Background -->
+                    <p class="card-text"><strong>Tertiary:</strong> Mindanao State University <br> <strong> BS Information Technology - Database </strong> - <i>A.Y 2021 - 2025</i></p>
+                    <p class="card-text"><strong>Senior High School:</strong> GSC SPED Integrated School <br> <strong> STEM </strong> - <i>A.Y 2019 - 2021 </i> </p>
+                    <p class="card-text"><strong>Junior High School:</strong> GSC SPED Integrated School <br> <i> A.Y 2015 - 2019 </i></p>
+                    <p class="card-text"><strong>Elementary:</strong> Jose C. Catolico Sr. Elementary School <br> <i> A.Y 2009 - 2015 </i> </p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Section -->
+    <div id="section2" class="projects-section" class="profile-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+        <h2>Projects</h2>
+    
+        <!-- Project 1 -->
+        <div class="project">
+            <h3><strong>Project One</strong> </h3>
+            
+            <!-- Tags Container for Project 1 -->
+            <div class="tags-container">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+            </div>
+            
+            <p>Brief description of Project One.</p>
+            
+            <!-- GitHub Link for Project 1 -->
+            <div class="github-link">
+                <a href="https://github.com/your-username/project-one" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+    
+        <!-- Project 2 -->
+        <div class="project">
+            <h3><strong>Project Two</strong></h3>
+            
+            <!-- Tags Container for Project 2 -->
+            <div class="tags-container">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+            </div>
+            
+            <p>Brief description of Project Two.</p>
+            
+            <!-- GitHub Link for Project 2 -->
+            <div class="github-link">
+                <a href="https://github.com/your-username/project-two" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+    
+        <!-- Add more projects as needed -->
+        <!-- Project 3 -->
+        <div class="project" class="profile-section" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
+            <h3><strong>First 3D Art</strong></h3>
+            
+            <!-- Project Image -->
+            <div class="project-image">
+                <img src="assets/img/d.jpg" alt="Project Three Image">
+            </div>
+            
+            <!-- Tags Container for Project 3 -->
+            <div class="tags-container">
+                <span class="tag">Blender</span>
+                <span class="tag">3D Art</span>
+                <span class="tag">Donut</span>
+            </div>
+            
+            <p>A basic project for starting a 3D project while making use of Blender's feature.</p>
+            
+            <!-- GitHub Link for Project 3 -->
+            <div class="github-link">
+                <a href="https://github.com/your-username/project-three" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Skills Section -->
+    <div id="section3" class="skills-section profile-section" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
+        <h2>Skills and Hobbies</h2>
+        <div class="skills-container">
+            <!-- Tabs Column -->
+            <div class="tabs">
+                <button class="tab-link active" onclick="openSkill(event, 'frontend')"><i class="fas fa-code"></i> Frontend Development</button>
+                <button class="tab-link" onclick="openSkill(event, 'backend')"><i class="fas fa-server"></i> Backend Development</button>
+                <button class="tab-link" onclick="openSkill(event, 'database')"><i class="fas fa-database"></i> Database Management</button>
+                <button class="tab-link" onclick="openSkill(event, 'tools')"><i class="fas fa-tools"></i> Tools & Technologies</button>
+                <button class="tab-link" onclick="openSkill(event, 'hobbies')"><i class="fas fa-gamepad"></i> Hobbies</button>
+            </div>
+    
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <div id="frontend" class="tab-panel active">
+                    <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                    <ul>
+                        <li><i class="fab fa-html5"></i> HTML</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS</li>
+                        <li><i class="fab fa-js"></i> JavaScript</li>
+                        <li><i class="fab fa-react"></i> React</li>
+                        <li><i class="fab fa-angular"></i> Angular</li>
+                    </ul>
+                </div>
+    
+                <div id="backend" class="tab-panel">
+                    <h3><i class="fas fa-server"></i> Backend Development</h3>
+                    <ul>
+                        <li><i class="fab fa-node-js"></i> Node.js</li>
+                        <li><i class="fas fa-stream"></i> Express</li>
+                        <li><i class="fab fa-python"></i> Python</li>
+                        <li><i class="fas fa-django"></i> Django</li>
+                    </ul>
+                </div>
+    
+                <div id="database" class="tab-panel">
+                    <h3><i class="fas fa-database"></i> Database Management</h3>
+                    <ul>
+                        <li><i class="fas fa-database"></i> MySQL</li>
+                        <li><i class="fas fa-database"></i> MongoDB</li>
+                        <li><i class="fas fa-database"></i> PostgreSQL</li>
+                    </ul>
+                </div>
+    
+                <div id="tools" class="tab-panel">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <ul>
+                        <li><i class="fab fa-git-alt"></i> Git</li>
+                        <li><i class="fab fa-docker"></i> Docker</li>
+                        <li><i class="fas fa-cogs"></i> Jenkins</li>
+                    </ul>
+                </div>
+    
+                <div id="hobbies" class="tab-panel">
+                    <h3><i class="fas fa-gamepad"></i> Hobbies</h3>
+                    <ul>
+                        <li><i class="fas fa-bed"></i> Stanning ENHYPEN</li>
+                        <!-- Add more hobbies as needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.facebook.com/bridgetnicolette/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/lovingthe4rcher" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/swtxtremity_/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://linktr.ee/minntbree" target="_blank" class="social-icon"><i class="fas fa-link"></i></a>
+                <a href="https://ph.pinterest.com/strawberriwchoco/" target="_blank" class="social-icon"><i class="fa-brands fa-pinterest-p"></i></a>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> b.nicolettejose@gmail.com</p>
+                <p><i class="fas fa-phone"></i> (+639) 73-7890-6529</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Animation Script -->
+    <script>
+        AOS.init({
+            offset: 120, // Offset from the original trigger point
+            delay: 0, // Delay before the animation starts
+            duration: 800, // Duration of animation
+            easing: 'ease', // Easing function
+            once: true, // Whether animation should happen only once - while scrolling down
+            mirror: false, // Whether elements should animate out while scrolling past them
+        });
+    </script>
+    <script>
+        function openSkill(evt, skillName) {
+            var i, tabPanel, tabLink;
+
+            // Hide all tab panels
+            tabPanel = document.getElementsByClassName("tab-panel");
+            for (i = 0; i < tabPanel.length; i++) {
+                tabPanel[i].style.display = "none";
+                tabPanel[i].classList.remove("active");
+            }
+
+            // Remove active class from all tab links
+            tabLink = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tabLink.length; i++) {
+                tabLink[i].classList.remove("active");
+            }
+
+            // Show the current tab panel, and add an active class to the clicked tab link
+            if (skillName === 'all') {
+                for (i = 0; i < tabPanel.length; i++) {
+                    tabPanel[i].style.display = "block";
+                    tabPanel[i].classList.add("active");
+                }
+            } else {
+                document.getElementById(skillName).style.display = "block";
+                document.getElementById(skillName).classList.add("active");
+            }
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Initialize the first tab as active
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".tab-link.active").click();
+        });
+    </script>
+
+    <!--
+        change mo ito ah 
+        email ==> email mo like kung isend yung hiring mail
+        subject ==> subject ng email
+        body ==> yung content ng email
+
+    -->
+    <script>
+        function openGmail() {
+            const email = "b.nicolettejose@gmail.com";
+            const subject = "Job Offer: [Job Title] at [Company Name]";
+            const body = `Dear Bridget,
+
+    We are thrilled to extend an offer to you for the position of [Job Title] at [Company Name]. After careful consideration, we are confident that your skills and experiences align perfectly with the needs of our team.
+
+    Here are the details of your offer:
+
+    Position: [Job Title]
+    Start Date: [Start Date]
+    Salary: [Salary Details]
+    Other Benefits: [Benefits]
+    To accept this offer, please reply to this email with your confirmation. We are excited about the possibility of you joining our team and contributing to our ongoing projects.
+
+    If you have any questions or need further information, feel free to reach out.
+
+    Best regards,
+
+    [Company Name]
+    [Contact Information]`;
+
+            const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            const confirmSend = confirm(`Are you sure you want to send this job offer email to ${email}?`);
+            
+            if (confirmSend) {
+                window.open(mailtoLink, '_blank');
+            }
+        }
+    </script>
+</body>
+
+</html>
