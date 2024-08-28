@@ -346,7 +346,12 @@ footer {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
    .button-container {
-        flex-direction: column;
+        flex-direction: row;
+   }
+
+   .arrow-down {
+        font-size: 100px;
+        margin-top: 10px;
    }
 
    .details-container {
