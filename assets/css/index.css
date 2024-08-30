@@ -6,7 +6,7 @@
 
 :root {
     --primary: #ffc4d4;
-    --secondary: #f8f6df;
+    --secondary: #f8f6df;   
     --tertiary: #97a970;
     --fourth: #cfe1b9;
     --dark-text: #718355;
@@ -598,7 +598,7 @@ footer {
 
 .gallery-item p {
     padding: 10px;
-    color: var(--primary);
+    color: var(--dark-text);
 }
 
 .gallery-item.hidden {
