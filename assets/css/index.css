@@ -13,6 +13,11 @@
     --light-text: #e9f5db; 
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+  
+
 header {
     margin: 0;
     padding: 0;
@@ -367,6 +372,8 @@ footer {
     background-color: var(--light-text);
 }
 
+
+
 .skills-section h2 {
     text-align: center;
     font-size: 40px;
@@ -465,5 +472,147 @@ footer {
     
     .tab-content {
         margin-top: 20px;
+    }
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9); 
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#globalCaption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #globalCaption {    
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.certificates-section {
+    padding: 50px;
+    background-color: var(--tertiary);
+}
+
+.certificates-section {
+    padding: 50px;
+    background-color: var(--tertiary);
+}
+
+.certificates-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.filter-btn:hover {
+    background-color: var(--secondary);
+    transform: scale(1.1);
+}
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery-item {
+    width: calc(25% - 40px); /* Fixed size */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, opacity 0.3s ease-in-out;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+}
+
+.gallery-item p {
+    padding: 10px;
+    color: var(--primary);
+}
+
+.gallery-item.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        width: calc(50% - 20px); /* Two items per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        width: 100%; /* One item per row on small screens */
     }
 }

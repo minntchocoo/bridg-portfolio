@@ -32,6 +32,7 @@
                 <a href="#section1" class="btn">PROFILE</a>
                 <a href="#section2" class="btn">PROJECT</a>
                 <a href="#section3" class="btn">SKILLS</a>
+                <a href="#section4" class="btn">CERTIFICATES</a>
             </div>
             <!-- Arrow Icon -->
             <div class="arrow-down">
@@ -125,7 +126,7 @@
             
             <!-- Project Image -->
             <div class="project-image">
-                <img src="assets/img/d.jpg" alt="Project Three Image">
+                <img src="assets/img/d.jpg" alt="First 3D Art Project">
             </div>
             
             <!-- Tags Container for Project 3 -->
@@ -211,10 +212,83 @@
             </div>
         </div>
     </div>
-    
+    <!-- The Modal -->
+    <div id="globalModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="globalModalImage">
+        <div id="globalCaption"></div>
+    </div>
     
 
-
+    <section id="section4" class="certificates-section" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
+        <h2>Seminars and Certificates</h2>
+        
+        <!-- Filter Buttons -->
+        <div id="filter-buttons" class="filter-buttons">
+            <button class="filter-btn" onclick="filterItems('all')">Show All</button>
+            <button class="filter-btn" onclick="filterItems('seminar')">Seminars</button>
+            <button class="filter-btn" onclick="filterItems('certificate')">Certificates</button>
+        </div>
+        
+        <!-- Gallery Container -->
+        <div id="gallery" class="gallery-container">
+            <!-- Seminar Items -->
+            <div class="gallery-item seminar" data-category="seminar">
+                <img src="https://via.placeholder.com/300x200" alt="Animation Industry Roadshow">
+                <p>Animation Industry Roadshow | DICT – Region XII<br><em>June 2024</em></p>
+            </div>
+            <div class="gallery-item seminar" data-category="seminar">
+                <img src="https://via.placeholder.com/300x200" alt="Capacity Building on the Marine Biodiversity Website">
+                <p>Capacity Building on the Full Usage of the Marine Biodiversity Website | UP Mindanao<br><em>September 2023</em></p>
+            </div>
+            <div class="gallery-item seminar" data-category="seminar">
+                <img src="assets/certificates/devcon-2.png" alt="Git Good and Stay Organized">
+                <p>No more code chaos: Git Good and Stay Organized | Campus DevCon 2023<br><em>May 2023</em></p>
+            </div>
+            <div class="gallery-item seminar" data-category="seminar">
+                <img src="assets/certificates/devcon-3.png" alt="Revolutionizing the Future with AI Tools">
+                <p>Revolutionizing the Future: Exploring the Power of AI Tools and their Impact | Campus DevCon 2023<br><em>May 2023</em></p>
+            </div>
+            <div class="gallery-item seminar" data-category="seminar">
+                <img src="assets/certificates/devcon-4.png" alt="Introduction to Cybersecurity">
+                <p>Introduction to Cybersecurity: Building Awareness in Today’s Digital World | Campus DevCon 2023<br><em>May 2023</em></p>
+            </div>
+            <div class="gallery-item seminar" data-category="seminar">
+                <img src="assets/certificates/devcon-6.png" alt="Your Path in Technopreneurship">
+                <p>Your Path in Technopreneurship | Campus DevCon 2023<br><em>May 2023</em></p>
+            </div>
+            <div class="gallery-item seminar" data-category="seminar">
+                <img src="assets/certificates/devcon-7.png" alt="DevSecOps for Starters">
+                <p>DevSecOps for Starters | Campus DevCon 2023<br><em>May 2023</em></p>
+            </div>
+            <div class="gallery-item seminar" data-category="seminar">
+                <img src="assets/certificates/devcon-1.png" alt="Careers in Cloud Computing">
+                <p>Careers in Cloud Computing | Campus DevCon 2023<br><em>May 2023</em></p>
+            </div>
+            <div class="gallery-item seminar" data-category="seminar">
+                <img src="assets/certificates/devcon-5.png" alt="Your Path in Technopreneurship">
+                <p>Your Path in Technopreneurship | Campus DevCon 2023<br><em>May 2023</em></p>
+            </div>
+    
+            <!-- Certificate Items -->
+             <!-- Replace mo Pictures nito tyy -->
+            <div class="gallery-item certificate" data-category="certificate">
+                <img src="https://via.placeholder.com/300x200" alt="Digital Transformation with Google Cloud">
+                <p>Digital Transformation with Google Cloud | Google Cloud<br><em>February 2024</em></p>
+            </div>
+            <div class="gallery-item certificate" data-category="certificate">
+                <img src="https://via.placeholder.com/300x200" alt="Foundations of Geographic Information System">
+                <p>Foundations of Geographic Information System | CMO-ICTD<br><em>October 2023</em></p>
+            </div>
+            <div class="gallery-item certificate" data-category="certificate">
+                <img src="https://via.placeholder.com/300x200" alt="Intel OpenVINO Training">
+                <p>Intel OpenVINO Training | Intel<br><em>September 2022</em></p>
+            </div>
+           
+        </div>
+    </section>
+    
+    
     <footer>
         <div class="footer-content">
             <div class="social-links">
@@ -247,6 +321,33 @@
             once: true, // Whether animation should happen only once - while scrolling down
             mirror: false, // Whether elements should animate out while scrolling past them
         });
+    </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("globalModal");
+
+        // Get the modal image and caption text
+        var modalImg = document.getElementById("globalModalImage");
+        var captionText = document.getElementById("globalCaption");
+
+        // Get all images and attach the modal functionality
+        var images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+            img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+        });
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() { 
+        modal.style.display = "none";
+        }
+
     </script>
     <script>
         function openSkill(evt, skillName) {
@@ -282,6 +383,19 @@
         document.addEventListener("DOMContentLoaded", function() {
             document.querySelector(".tab-link.active").click();
         });
+
+        document.querySelectorAll('.btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
     </script>
 
     <!--
@@ -322,6 +436,23 @@
                 window.open(mailtoLink, '_blank');
             }
         }
+    </script>
+    <script>
+       function filterItems(category) {
+            var items = document.querySelectorAll('.gallery-item');
+
+            items.forEach(function(item) {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.classList.remove('hidden');
+                    item.classList.add('show');
+                } else {
+                    item.classList.remove('show');
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+
     </script>
 </body>
 
