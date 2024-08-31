@@ -117,7 +117,7 @@
     
         <!-- Capstone Project -->
         <div class="project">
-            <h3><strong>Capstone Project - Co-Designer</strong></h3>
+            <h3><strong>Digital Freelancer Profiling System - Co-Designer</strong></h3>
                             
             <div class="project-image">
                 <img src="assets/img/bg_3.jpg" alt="Capstone Project">
@@ -130,6 +130,10 @@
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
                 <span class="tag">JS</span>
+                <span class="tag">LeafletJS</span>
+                <span class="tag">Python</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">AllAuth</span>
             </div>
     
             <p>A collaborative project for a capstone, involving design and development using Django.</p>
@@ -152,7 +156,9 @@
             <!-- Tags Container -->
             <div class="tags-container">
                 <span class="tag">Django</span>
+                <span class="tag">SQLite</span>
                 <span class="tag">Matplotlib</span>
+                <span class="tag">Python</span>
                 <span class="tag">Chart.js</span>
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
@@ -178,7 +184,10 @@
             <!-- Tags Container -->
             <div class="tags-container">
                 <span class="tag">React</span>
-                <span class="tag">MERN</span>
+                <span class="tag">NodeJS</span>
+                <span class="tag">Express</span>
+                <span class="tag">MongoDB</span>
+
             </div>
     
             <p>Development of a database-driven website using the MERN stack for CNSM.</p>
@@ -193,7 +202,7 @@
     
         <!-- AI Coin Detector Project -->
         <div class="project">
-            <h3><strong>AI Coin Detector using Django and GTM - Collaborator</strong></h3>
+            <h3><strong>AI Coin Detector using Django and GTM - Model Training</strong></h3>
             <div class="project-image">
                 <img src="assets/img/bg_3.jpg" alt="AI Coin Detector">
             </div>
@@ -397,6 +406,7 @@
                 <p><i class="fas fa-phone"></i> (+639) 73-7890-6529</p>
             </div>
         </div>
+        
     </footer>
     
     <!-- Bootstrap JS and dependencies -->
@@ -637,7 +647,16 @@
             animate();
         });
     </script>
-    
+    <script>
+        document.querySelectorAll('.btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
     
 </body>
 
