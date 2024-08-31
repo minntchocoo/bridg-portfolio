@@ -639,3 +639,17 @@ footer {
 }
 
 
+.flag-text {
+    display: none;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 20px;
+    color: red;
+}
+
+/* Media query to show text only between 624px and 625px */
+@media (min-width: 624px) and (max-width: 625px) {
+    .flag-text {
+        display: block;
+    }
+}
