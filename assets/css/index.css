@@ -352,6 +352,8 @@ footer {
 @media (max-width: 768px) {
    .button-container {
         flex-direction: row;
+        flex-wrap: wrap;
+        width: 100vw;
    }
 
    .arrow-down {
