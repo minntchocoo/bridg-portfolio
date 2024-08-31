@@ -65,7 +65,6 @@ body {
     font-size: 2rem;
     position: relative;
     z-index: 2; /* Ensure content is above the overlay */
-    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -616,5 +615,25 @@ footer {
 @media (max-width: 480px) {
     .gallery-item {
         width: 100%; /* One item per row on small screens */
+    }
+}
+
+
+.floating-canvas {
+    position: absolute;
+    display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .arrow-down {
+        display: none; /* Hide the arrow icon on small screens */
+    }
+    .floating-canvas {
+        display: block; /* Show the canvas on small screens */
+        width: 100px;
+        height: 100px;
+        background-color: transparent;
+        z-index: -1;
     }
 }
