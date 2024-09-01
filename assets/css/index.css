@@ -594,7 +594,7 @@ footer {
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 30vh;
 }
 
 .gallery-item p {
