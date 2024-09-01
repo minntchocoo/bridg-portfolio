@@ -69,7 +69,7 @@
                     <h2><strong>Bridget Nicolette Jose</strong></h2> <!-- Name -->
                     <p>Hi there! I’m Bridget, a 21-year-old student at Mindanao State University, currently pursuing a Bachelor of Science in Information Technology major in Database.</p> <!-- Description -->
                     <p><strong>Email:</strong> b.nicolettejose@gmail.com</p> <!-- Email -->
-                    <p><strong>Phone:</strong> (+639) 73-7890-6529</p> <!-- Phone -->
+                    <p><strong>Phone:</strong> (+63) 973-7890-6529</p> <!-- Phone -->
                     <p><strong>Address:</strong> Brisbane, Australia</p> <!-- Location -->
                 </div>
                 <div class="education-details">
@@ -257,7 +257,7 @@
         <h2>Skills and Hobbies</h2>
         <div class="skills-container">
             <!-- Tabs Column -->
-            <div class="tabs">
+            <div class="tabs" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
                 <button class="tab-link active" onclick="openSkill(event, 'frontend')"><i class="fas fa-code"></i> Frontend Development</button>
                 <button class="tab-link" onclick="openSkill(event, 'backend')"><i class="fas fa-server"></i> Backend Development</button>
                 <button class="tab-link" onclick="openSkill(event, 'database')"><i class="fas fa-database"></i> Database Management</button>
@@ -266,8 +266,8 @@
             </div>
     
             <!-- Tab Content -->
-            <div class="tab-content">
-                <div id="frontend" class="tab-panel active">
+            <div class="tab-content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                <div id="frontend" class="tab-panel active" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                     <h3><i class="fas fa-code"></i> Frontend Development</h3>
                     <ul>
                         <li><i class="fab fa-html5"></i> HTML</li>
@@ -277,7 +277,7 @@
                     </ul>
                 </div>
     
-                <div id="backend" class="tab-panel">
+                <div id="backend" class="tab-panel" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
                     <h3><i class="fas fa-server"></i> Backend Development</h3>
                     <ul>
                         <li><i class="fab fa-node-js"></i> Node.js</li>
@@ -287,7 +287,7 @@
                     </ul>
                 </div>
     
-                <div id="database" class="tab-panel">
+                <div id="database" class="tab-panel" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
                     <h3><i class="fas fa-database"></i> Database Management</h3>
                     <ul>
                         <li><i class="fas fa-database"></i> MySQL</li>
@@ -296,7 +296,7 @@
                     </ul>
                 </div>
     
-                <div id="tools" class="tab-panel">
+                <div id="tools" class="tab-panel" data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
                     <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
                     <ul>
                         <li><i class="fab fa-git-alt"></i> Git</li>
@@ -305,12 +305,12 @@
                     </ul>
                 </div>
     
-                <div id="hobbies" class="tab-panel">
+                <div id="hobbies" class="tab-panel" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
                     <h3><i class="fas fa-gamepad"></i> Hobbies</h3>
                     <ul>
                         <li><i class="fas fa-bed"></i> Stanning ENHYPEN</li>
                         <!-- Add more hobbies as needed -->
-
+    
                         <!-- <div class="flag-text">
                             This text only appears when the screen width is between 624px and 625px.
                              <p>Congratulations! CTF{M3d14_ScR33n_624_625fde}</p>
@@ -320,6 +320,7 @@
             </div>
         </div>
     </div>
+    
     <!-- The Modal -->
     <div id="globalModal" class="modal">
         <span class="close">&times;</span>
@@ -339,7 +340,7 @@
         </div>
         
         <!-- Gallery Container -->
-        <div id="gallery" class="gallery-container">
+        <div id="gallery" class="gallery-container"  data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
             <!-- Seminar Items -->
             <div class="gallery-item seminar" data-category="seminar">
                 <img src="https://via.placeholder.com/300x200" alt="Animation Industry Roadshow">
@@ -559,6 +560,9 @@
                         item.classList.add('hidden');
                     }
                 });
+
+                // Reset AOS animations
+                AOS.refresh(); // This will refresh the AOS animations
             }
 
 
