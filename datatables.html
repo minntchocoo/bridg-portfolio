@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTables - Bridget</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.dataTables.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        /* Custom CSS to center pagination and table information at the top */
+        .dataTables_wrapper .dataTables_paginate,
+        .dataTables_wrapper .dataTables_info {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px; /* Optional: add margin to separate from the table */
+        }
+        .dt-input {
+            margin-right: 12px;
+            margin-top: 12px;
+        }
+        
+        /* Ensure table layout is properly adjusted */
+        table.dataTable {
+            table-layout: auto;
+        }
+        th, td {
+            white-space: nowrap; /* Prevents text from wrapping in cells */
+        }
+        .dataTables_wrapper {
+            margin: 0 auto; /* Center the DataTable wrapper */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container mt-4">
+        <div id="toggle-visibility" class="mb-3">
+            <a href="#" class="toggle-vis btn btn-primary btn-sm" data-column="0">Toggle Name</a>
+            <a href="#" class="toggle-vis btn btn-primary btn-sm" data-column="1">Toggle Position</a>
+            <a href="#" class="toggle-vis btn btn-primary btn-sm" data-column="2">Toggle Office</a>
+            <a href="#" class="toggle-vis btn btn-primary btn-sm" data-column="3">Toggle Extn.</a>
+            <a href="#" class="toggle-vis btn btn-primary btn-sm" data-column="4">Toggle Start date</a>
+            <a href="#" class="toggle-vis btn btn-primary btn-sm" data-column="5">Toggle Salary</a>
+            <a href="#" class="toggle-vis btn btn-primary btn-sm" data-column="6">Toggle Department</a>
+        </div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button">Table 1</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button">Table 2</button>
+            </li>
+        </ul>
+        <div class="tab-content mt-2">
+            <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                <table id="table1" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Extn.</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Extn.</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <!-- Data will be loaded via DataTables -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="tab2" role="tabpanel">
+                <table id="table2" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                            <th>Department</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                            <th>Department</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <!-- Data will be loaded via DataTables -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button id="button" class="btn btn-danger mt-3">Delete Selected Row</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var allData = [];
+            
+            // Load the CSV data
+            $.ajax({
+                url: './assets/datafiles/data.csv', // Your data.csv file
+                dataType: 'text',
+                success: function (data) {
+                    var rows = data.split('\n');
+                    var table1Data = [];
+                    var table2Data = [];
+                    
+                    // Process CSV data
+                    for (var i = 1; i < rows.length; i++) { // Skip header row
+                        var cells = rows[i].split(',');
+                        if (cells.length > 1) { // Ensure there is data
+                            // Populate table1Data and table2Data based on index
+                            if (cells.length >= 4) {
+                                table1Data.push(cells.slice(0, 4)); // Name, Position, Office, Extn.
+                            }
+                            if (cells.length >= 7) {
+                                table2Data.push(cells.slice(4, 7)); // Start date, Salary, Department
+                            }
+                        }
+                    }
+                    
+                    // Initialize DataTables
+                    var table1 = $('#table1').DataTable({
+                        data: table1Data,
+                        columns: [
+                            { title: "Name" },
+                            { title: "Position" },
+                            { title: "Office" },
+                            { title: "Extn." }
+                        ]
+                    });
+
+                    var table2 = $('#table2').DataTable({
+                        data: table2Data,
+                        columns: [
+                            { title: "Start date" },
+                            { title: "Salary" },
+                            { title: "Department" }
+                        ]
+                    });
+
+                    // Handle Bootstrap tab change
+                    document.querySelectorAll('button[data-bs-toggle="tab"]').forEach((el) => {
+                        el.addEventListener('shown.bs.tab', function () {
+                            DataTable.tables({ visible: true, api: true }).forEach(function(table) {
+                                table.columns.adjust();
+                            });
+                        });
+                    });
+
+                    // Row click event handler
+                    $('#table1 tbody, #table2 tbody').on('click', 'tr', function () {
+                        $(this).toggleClass('selected');
+                    });
+
+                    // Delete selected row event handler
+                    $('#button').on('click', function () {
+                        var selectedTable = $('#table1').DataTable().rows('.selected').length ? $('#table1').DataTable() : $('#table2').DataTable();
+                        selectedTable.row('.selected').remove().draw(false);
+                    });
+
+                    // Toggle column visibility
+                    document.querySelectorAll('a.toggle-vis').forEach((el) => {
+                        el.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            let columnIdx = e.target.getAttribute('data-column');
+                            let columnIdxInt = parseInt(columnIdx);
+                            let table = $('#table1').DataTable().column(columnIdxInt).header().length ? $('#table1').DataTable() : $('#table2').DataTable();
+
+                            // Toggle the visibility
+                            table.column(columnIdxInt).visible(!table.column(columnIdxInt).visible());
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
