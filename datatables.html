@@ -12,8 +12,58 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
         /* Ensure table layout is auto for content fitting */
- 
-    
+        tfoot input{
+            width: 100px;
+        }
+                /* Apply specific widths to each column in both tables using nth-child */
+        #table1 th:nth-child(1),
+        #table1 td:nth-child(1),
+        #table2 th:nth-child(1),
+        #table2 td:nth-child(1) {
+            width: 15%;
+        }
+
+        #table1 th:nth-child(2),
+        #table1 td:nth-child(2),
+        #table2 th:nth-child(2),
+        #table2 td:nth-child(2) {
+            width: 15%;
+        }
+
+        #table1 th:nth-child(3),
+        #table1 td:nth-child(3),
+        #table2 th:nth-child(3),
+        #table2 td:nth-child(3) {
+            width: 10%;
+        }
+
+        #table1 th:nth-child(4),
+        #table1 td:nth-child(4),
+        #table2 th:nth-child(4),
+        #table2 td:nth-child(4) {
+            width: 5%;
+        }
+
+        #table1 th:nth-child(5),
+        #table1 td:nth-child(5),
+        #table2 th:nth-child(5),
+        #table2 td:nth-child(5) {
+            width: 15%;
+        }
+
+        #table1 th:nth-child(6),
+        #table1 td:nth-child(6),
+        #table2 th:nth-child(6),
+        #table2 td:nth-child(6) {
+            width: 15%;
+        }
+
+        #table1 th:nth-child(7),
+        #table1 td:nth-child(7),
+        #table2 th:nth-child(7),
+        #table2 td:nth-child(7) {
+            width: 20%;
+        }
         /* Set td and th to fit their content */
         th, td {
             width: 1%; /* Fit-content style */
@@ -201,7 +251,7 @@
 
                     // Initialize DataTables for Table 2 (Filtered data from 1965 onwards)
                     var table2 = $('#table2').DataTable({
-                        data: filteredData,
+                        data: combinedData,
                         columns: [
                             { title: "Name" },
                             { title: "Position" },
@@ -211,7 +261,27 @@
                             { title: "Salary" },
                             { title: "Department" }
                         ],
-                        dom: '<"top"p>rt<"bottom"il><"clear">', // Moves pagination to top and entries to bottom, no search bar
+                        dom: '<"top"p>rt<"bottom"il><"clear">',
+                        initComplete: function () {
+                            this.api()
+                                .columns()
+                                .every(function () {
+                                    let column = this;
+                                    let title = column.footer().textContent;
+
+                                    // Create input element for filtering
+                                    let input = document.createElement('input');
+                                    input.placeholder = 'Search ' + title;
+                                    column.footer().replaceChildren(input);
+
+                                    // Add event listener for search functionality
+                                    input.addEventListener('keyup', function () {
+                                        if (column.search() !== this.value) {
+                                            column.search(this.value).draw();
+                                        }
+                                    });
+                                });
+                        } // Moves pagination to top and entries to bottom, no search bar
 
                     });
 
@@ -234,6 +304,18 @@
                         var selectedTable = $('#table1').DataTable().rows('.selected').length ? $('#table1').DataTable() : $('#table2').DataTable();
                         selectedTable.row('.selected').remove().draw(false);
                     });
+
+                      // Delete selected row event handler
+                    $('#button').on('click', function () {
+                        var selectedTable = $('#table2').DataTable().rows('.selected').length ? $('#table1').DataTable() : $('#table2').DataTable();
+                        selectedTable.row('.selected').remove().draw(false);
+                    });
+                    $('#button').on('click', function () {
+                        var table2 = $('#table2').DataTable();
+                        // Remove selected rows from table2
+                        table2.rows('.selected').remove().draw(false);
+                    });
+
 
                     // Toggle column visibility
                     $('.toggle-vis').on('click', function (e) {
