@@ -237,6 +237,7 @@ footer {
 .social-links {
     display: flex;
     gap: 15px;
+    justify-content: center;
 }
 
 .social-icon {
@@ -653,3 +654,23 @@ footer {
         display: block;
     }
 }
+
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--dark-text);
+}
+
