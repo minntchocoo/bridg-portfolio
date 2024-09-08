@@ -336,25 +336,18 @@
                     });
 
                     // Row click event handler for selecting rows
+                            // Row click event handler for selecting rows
                     $('#table1 tbody, #table2 tbody').on('click', 'tr', function () {
                         $(this).toggleClass('selected');
                     });
 
-                    // Delete selected row event handler
+                    // Delete selected rows event handler
                     $('#button').on('click', function () {
-                        var selectedTable = $('#table1').DataTable().rows('.selected').length ? $('#table1').DataTable() : $('#table2').DataTable();
-                        selectedTable.row('.selected').remove().draw(false);
-                    });
-
-                      // Delete selected row event handler
-                    $('#button').on('click', function () {
-                        var selectedTable = $('#table2').DataTable().rows('.selected').length ? $('#table1').DataTable() : $('#table2').DataTable();
-                        selectedTable.row('.selected').remove().draw(false);
-                    });
-                    $('#button').on('click', function () {
-                        var table2 = $('#table2').DataTable();
-                        // Remove selected rows from table2
-                        table2.rows('.selected').remove().draw(false);
+                        var activeTableId = $('.nav-tabs .active').attr('id');
+                        var table = activeTableId === 'tab1-tab' ? $('#table1').DataTable() : $('#table2').DataTable();
+                        
+                        // Remove selected rows
+                        table.rows('.selected').remove().draw(false);
                     });
 
 
