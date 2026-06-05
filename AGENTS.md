@@ -23,7 +23,7 @@ npm run preview  # serve the production build locally
 
 ## Project layout
 
-```
+```text
 public/assets/              # images, css, fonts, datafiles (served at /assets/...)
 src/
   layouts/BaseLayout.astro  # <head>, CDN <link>/<script>, page shell
@@ -93,6 +93,21 @@ alt: Certificate name
 caption: "Certificate Title | Issuer"   # quote if it contains a colon
 date: March 2025
 order: 13
+---
+```
+
+If you don't have the certificate image yet, **omit `image`** and an icon
+placeholder is shown instead. Optionally set `icon` to a Font Awesome class to
+pick the glyph (defaults to `fas fa-certificate`):
+
+```md
+---
+category: certificate
+icon: fas fa-cloud                 # shown because `image` is omitted
+alt: Some Cloud Certificate
+caption: Some Cloud Certificate | Issuer
+date: March 2025
+order: 14
 ---
 ```
 

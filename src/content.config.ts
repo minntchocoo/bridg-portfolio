@@ -38,7 +38,10 @@ const certificates = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/certificates" }),
   schema: z.object({
     category: z.enum(["seminar", "certificate"]),
-    image: z.string(),
+    // Omit `image` to show a fallback certificate icon instead of a photo.
+    image: z.string().optional(),
+    // Icon shown when `image` is omitted (Font Awesome class).
+    icon: z.string().default("fas fa-certificate"),
     alt: z.string(),
     caption: z.string(),
     date: z.string(),

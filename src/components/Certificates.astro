@@ -45,7 +45,13 @@ const items = entries
     {
       items.map((item) => (
         <div class:list={["gallery-item", item.category]} data-category={item.category}>
-          <img src={item.image} alt={item.alt} />
+          {item.image ? (
+            <img src={item.image} alt={item.alt} />
+          ) : (
+            <div class="cert-icon-placeholder" role="img" aria-label={item.alt}>
+              <i class={item.icon} />
+            </div>
+          )}
           <p set:html={`${item.caption}<br><em>${item.date}</em>`} />
         </div>
       ))

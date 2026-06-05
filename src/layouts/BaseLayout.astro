@@ -34,7 +34,9 @@ const { title = "Minnt's Portfolio" } = Astro.props;
   <body>
     <slot />
 
-    <!-- Bootstrap JS and dependencies -->
+    <!-- Bootstrap JS and dependencies. Loaded synchronously (no defer) before
+         the page's inline scripts so globals like AOS and $ are defined when
+         <slot name="scripts" /> runs. -->
     <script
       is:inline
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -49,5 +51,8 @@ const { title = "Minnt's Portfolio" } = Astro.props;
     <script
       is:inline
       src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Page inline scripts run after the CDN libraries above. -->
+    <slot name="scripts" />
   </body>
 </html>

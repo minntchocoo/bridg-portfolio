@@ -1,6 +1,6 @@
 ---
 category: certificate
-image: https://via.placeholder.com/300x200
+icon: fas fa-cloud
 alt: Digital Transformation with Google Cloud
 caption: Digital Transformation with Google Cloud | Google Cloud
 date: February 2024
