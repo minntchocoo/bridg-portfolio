@@ -1,4 +1,6 @@
 ---
+import { withBase } from "../utils/paths";
+
 interface Props {
   title?: string;
 }
@@ -27,9 +29,9 @@ const { title = "Minnt's Portfolio" } = Astro.props;
     />
 
     <!-- website icon -->
-    <link rel="icon" type="image/x-icon" href="/assets/img/download.jpg" />
+    <link rel="icon" type="image/x-icon" href={withBase("/assets/img/download.jpg")} />
 
-    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href={withBase("/assets/css/index.css")} />
   </head>
   <body>
     <slot />

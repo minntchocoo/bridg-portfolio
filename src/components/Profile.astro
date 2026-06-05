@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../utils/paths";
 // Profile content is mostly prose/bio, so it stays inline here.
 ---
 
@@ -12,7 +13,7 @@
   <h1>All About BRIDGET</h1>
   <div class="profile-content">
     <div class="img-container">
-      <img src="/assets/img/me.jpg" alt="Profile Picture" class="profile-img" />
+      <img src={withBase("/assets/img/me.jpg")} alt="Profile Picture" class="profile-img" />
       <!-- Profile Image -->
     </div>
     <button class="hire-me" onclick="openGmail()">Let’s Work Together</button>
