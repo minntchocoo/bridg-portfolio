@@ -598,6 +598,21 @@ footer {
     height: 30vh;
 }
 
+/* Fallback shown for certificate entries that have no image yet */
+.cert-icon-placeholder {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fourth);
+    color: var(--dark-text);
+}
+
+.cert-icon-placeholder i {
+    font-size: 4rem;
+}
+
 .gallery-item p {
     padding: 10px;
     color: var(--dark-text);

@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+import { withBase } from "../utils/paths";
+
+// Add a new seminar/certificate by dropping a .md file in
+// src/content/certificates/ (set category: seminar | certificate).
+const entries = await getCollection("certificates");
+const items = entries
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => entry.data);
+---
+
+<!-- The Modal -->
+<div id="globalModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="globalModalImage" />
+  <div id="globalCaption"></div>
+</div>
+
+<section
+  id="section4"
+  class="certificates-section"
+  data-aos="fade-right"
+  data-aos-duration="800"
+  data-aos-delay="100"
+>
+  <h2>Seminars and Certificates</h2>
+
+  <!-- Filter Buttons -->
+  <div id="filter-buttons" class="filter-buttons">
+    <button class="filter-btn" onclick="filterItems('all')">Show All</button>
+    <button class="filter-btn" onclick="filterItems('seminar')">Seminars</button>
+    <button class="filter-btn" onclick="filterItems('certificate')">
+      Certificates
+    </button>
+  </div>
+
+  <!-- Gallery Container -->
+  <div
+    id="gallery"
+    class="gallery-container"
+    data-aos="fade-up"
+    data-aos-duration="800"
+    data-aos-delay="400"
+  >
+    {
+      items.map((item) => (
+        <div class:list={["gallery-item", item.category]} data-category={item.category}>
+          {item.image ? (
+            <img src={withBase(item.image)} alt={item.alt} />
+          ) : (
+            <div class="cert-icon-placeholder" role="img" aria-label={item.alt}>
+              <i class={item.icon} />
+            </div>
+          )}
+          <p set:html={`${item.caption}<br><em>${item.date}</em>`} />
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,70 @@
+---
+import { getCollection } from "astro:content";
+
+// Add a new skill group (tab) by dropping a .md file in src/content/skills/.
+const entries = await getCollection("skills");
+const skillGroups = entries
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => entry.data);
+---
+
+<div
+  id="section3"
+  class="skills-section profile-section"
+  data-aos="fade-right"
+  data-aos-duration="800"
+  data-aos-delay="100"
+>
+  <h2>Skills and Hobbies</h2>
+  <div class="skills-container">
+    <!-- Tabs Column -->
+    <div
+      class="tabs"
+      data-aos="fade-left"
+      data-aos-duration="800"
+      data-aos-delay="200"
+    >
+      {
+        skillGroups.map((group, i) => (
+          <button
+            class:list={["tab-link", { active: i === 0 }]}
+            onclick={`openSkill(event, '${group.id}')`}
+          >
+            <i class={group.icon} /> {group.label}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Tab Content -->
+    <div
+      class="tab-content"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="300"
+    >
+      {
+        skillGroups.map((group, i) => (
+          <div
+            id={group.id}
+            class:list={["tab-panel", { active: i === 0 }]}
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay={400 + i * 100}
+          >
+            <h3>
+              <i class={group.icon} /> {group.label}
+            </h3>
+            <ul>
+              {group.items.map((item) => (
+                <li>
+                  <i class={item.icon} /> {item.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

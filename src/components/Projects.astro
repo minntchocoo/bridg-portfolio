@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import { withBase } from "../utils/paths";
+
+// Add a new project by dropping a .md file in src/content/projects/.
+const entries = await getCollection("projects");
+const projects = entries
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => entry.data);
+---
+
+<div
+  id="section2"
+  class="projects-section profile-section"
+  data-aos="fade-up"
+  data-aos-duration="800"
+  data-aos-delay="100"
+>
+  <h2>Projects</h2>
+  {
+    projects.map((project) => (
+      <div class="project">
+        <h3>
+          <strong>{project.title}</strong>
+        </h3>
+
+        <div class="project-image">
+          <img src={withBase(project.image)} alt={project.alt} />
+        </div>
+
+        <div class="tags-container">
+          {project.tags.map((tag) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+
+        <p>{project.description}</p>
+
+        <div class="github-link">
+          <a href={project.github} target="_blank">
+            <i class="fab fa-github" /> View on GitHub
+          </a>
+        </div>
+      </div>
+    ))
+  }
+</div>

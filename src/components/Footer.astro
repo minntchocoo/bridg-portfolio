@@ -1,0 +1,33 @@
+---
+const socials = [
+  { href: "https://www.facebook.com/bridgetnicolette/", icon: "fab fa-facebook-f" },
+  { href: "https://x.com/lovingthe4rcher", icon: "fab fa-twitter" },
+  { href: "https://www.instagram.com/swtxtremity_/", icon: "fab fa-instagram" },
+  { href: "https://linktr.ee/minntbree", icon: "fas fa-link" },
+  { href: "https://ph.pinterest.com/strawberriwchoco/", icon: "fa-brands fa-pinterest-p" },
+];
+---
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-links-container">
+      <ul class="footer-links">
+        <li><a href="#section1">Portfolio</a></li>
+        <!--<li><a href="datatables.html">DataTables</a></li>  -->
+      </ul>
+    </div>
+    <div class="social-links">
+      {
+        socials.map((s) => (
+          <a href={s.href} target="_blank" class="social-icon">
+            <i class={s.icon} />
+          </a>
+        ))
+      }
+    </div>
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> b.nicolettejose@gmail.com</p>
+      <p><i class="fas fa-phone"></i> (+639) 10-752-6913</p>
+    </div>
+  </div>
+</footer>
