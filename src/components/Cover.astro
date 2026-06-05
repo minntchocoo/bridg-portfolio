@@ -1,0 +1,37 @@
+---
+const buttons = [
+  { href: "#section1", label: "PROFILE" },
+  { href: "#section2", label: "PROJECT" },
+  { href: "#section3", label: "SKILLS" },
+  { href: "#section4", label: "CERTIFICATES" },
+];
+const canvasCount = 8;
+---
+
+<div class="cover">
+  <div class="intro-message">
+    <h1><strong> BRIDGET's SPACE</strong></h1>
+    <!-- Cover Title -->
+    <p>
+      Hello there, welcome to MY Portfolio!🌟You've stumbled upon my little
+      corner of the internet featuring my portfolio.
+    </p>
+    <!-- Cover Subtitle -->
+
+    <!-- Cover Links -->
+    <div class="button-container">
+      {buttons.map((b) => <a href={b.href} class="btn">{b.label}</a>)}
+    </div>
+    <!-- Arrow Icon -->
+    <div class="arrow-down">
+      &#x21e9; <!-- Unicode for Down Arrow -->
+    </div>
+
+    <!-- Multiple floating canvases for flowers and hearts -->
+    {
+      Array.from({ length: canvasCount }, (_, i) => (
+        <canvas id={`flowerCanvas${i + 1}`} class="floating-canvas" />
+      ))
+    }
+  </div>
+</div>

@@ -1,0 +1,116 @@
+---
+// Phase 2: data held inline. Phase 3 moves this to a content collection.
+const skillGroups = [
+  {
+    id: "frontend",
+    icon: "fas fa-code",
+    label: "Frontend Development",
+    items: [
+      { icon: "fab fa-html5", name: "HTML" },
+      { icon: "fab fa-css3-alt", name: "CSS" },
+      { icon: "fab fa-js", name: "JavaScript" },
+      { icon: "fab fa-react", name: "React" },
+    ],
+  },
+  {
+    id: "backend",
+    icon: "fas fa-server",
+    label: "Backend Development",
+    items: [
+      { icon: "fab fa-node-js", name: "Node.js" },
+      { icon: "fas fa-stream", name: "Express" },
+      { icon: "fab fa-python", name: "Python" },
+      { icon: "fas fa-code", name: "Django" },
+    ],
+  },
+  {
+    id: "database",
+    icon: "fas fa-database",
+    label: "Database Management",
+    items: [
+      { icon: "fas fa-database", name: "MySQL" },
+      { icon: "fas fa-database", name: "MongoDB" },
+      { icon: "fas fa-database", name: "PostgreSQL" },
+    ],
+  },
+  {
+    id: "tools",
+    icon: "fas fa-tools",
+    label: "Tools & Technologies",
+    items: [
+      { icon: "fab fa-git-alt", name: "Git" },
+      { icon: "fab fa-docker", name: "Docker" },
+      { icon: "fas fa-paint-brush", name: "Blender" },
+      { icon: "fas fa-paint-brush", name: "Canva" },
+      { icon: "fas fa-paint-brush", name: "Capcut" },
+    ],
+  },
+  {
+    id: "hobbies",
+    icon: "fas fa-gamepad",
+    label: "Hobbies",
+    items: [{ icon: "fas fa-bed", name: "Stanning ENHYPEN" }],
+  },
+];
+---
+
+<div
+  id="section3"
+  class="skills-section profile-section"
+  data-aos="fade-right"
+  data-aos-duration="800"
+  data-aos-delay="100"
+>
+  <h2>Skills and Hobbies</h2>
+  <div class="skills-container">
+    <!-- Tabs Column -->
+    <div
+      class="tabs"
+      data-aos="fade-left"
+      data-aos-duration="800"
+      data-aos-delay="200"
+    >
+      {
+        skillGroups.map((group, i) => (
+          <button
+            class:list={["tab-link", { active: i === 0 }]}
+            onclick={`openSkill(event, '${group.id}')`}
+          >
+            <i class={group.icon} /> {group.label}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Tab Content -->
+    <div
+      class="tab-content"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="300"
+    >
+      {
+        skillGroups.map((group, i) => (
+          <div
+            id={group.id}
+            class:list={["tab-panel", { active: i === 0 }]}
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay={400 + i * 100}
+          >
+            <h3>
+              <i class={group.icon} /> {group.label}
+            </h3>
+            <ul>
+              {group.items.map((item) => (
+                <li>
+                  <i class={item.icon} /> {item.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

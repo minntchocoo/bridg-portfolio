@@ -1,0 +1,137 @@
+---
+// Phase 2: data held inline. Phase 3 moves this to a content collection.
+const items = [
+  {
+    category: "seminar",
+    image: "/assets/certificates/animation.jpg",
+    alt: "Animation Industry Roadshow",
+    caption: "Animation Industry Roadshow | DICT – Region XII",
+    date: "June 2024",
+  },
+  {
+    category: "seminar",
+    image: "/assets/certificates/mabida.jpeg",
+    alt: "Capacity Building on the Marine Biodiversity Website",
+    caption:
+      "Capacity Building on the Full Usage of the Marine Biodiversity Website | UP Mindanao",
+    date: "September 2023",
+  },
+  {
+    category: "seminar",
+    image: "/assets/certificates/devcon-2.png",
+    alt: "Git Good and Stay Organized",
+    caption:
+      "No more code chaos: Git Good and Stay Organized | Campus DevCon 2023",
+    date: "May 2023",
+  },
+  {
+    category: "seminar",
+    image: "/assets/certificates/devcon-3.png",
+    alt: "Revolutionizing the Future with AI Tools",
+    caption:
+      "Revolutionizing the Future: Exploring the Power of AI Tools and their Impact | Campus DevCon 2023",
+    date: "May 2023",
+  },
+  {
+    category: "seminar",
+    image: "/assets/certificates/devcon-4.png",
+    alt: "Introduction to Cybersecurity",
+    caption:
+      "Introduction to Cybersecurity: Building Awareness in Today’s Digital World | Campus DevCon 2023",
+    date: "May 2023",
+  },
+  {
+    category: "seminar",
+    image: "/assets/certificates/devcon-6.png",
+    alt: "Your Path in Technopreneurship",
+    caption: "Your Path in Technopreneurship | Campus DevCon 2023",
+    date: "May 2023",
+  },
+  {
+    category: "seminar",
+    image: "/assets/certificates/devcon-7.png",
+    alt: "DevSecOps for Starters",
+    caption: "DevSecOps for Starters | Campus DevCon 2023",
+    date: "May 2023",
+  },
+  {
+    category: "seminar",
+    image: "/assets/certificates/devcon-1.png",
+    alt: "Careers in Cloud Computing",
+    caption: "Careers in Cloud Computing | Campus DevCon 2023",
+    date: "May 2023",
+  },
+  {
+    category: "seminar",
+    image: "/assets/certificates/devcon-5.png",
+    alt: "Your Path in Technopreneurship",
+    caption: "Your Path in Technopreneurship | Campus DevCon 2023",
+    date: "May 2023",
+  },
+  {
+    category: "certificate",
+    image: "https://via.placeholder.com/300x200",
+    alt: "Digital Transformation with Google Cloud",
+    caption: "Digital Transformation with Google Cloud | Google Cloud",
+    date: "February 2024",
+  },
+  {
+    category: "certificate",
+    image: "https://via.placeholder.com/300x200",
+    alt: "Foundations of Geographic Information System",
+    caption: "Foundations of Geographic Information System | CMO-ICTD",
+    date: "October 2023",
+  },
+  {
+    category: "certificate",
+    image: "https://via.placeholder.com/300x200",
+    alt: "Intel OpenVINO Training",
+    caption: "Intel OpenVINO Training | Intel",
+    date: "September 2022",
+  },
+];
+---
+
+<!-- The Modal -->
+<div id="globalModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="globalModalImage" />
+  <div id="globalCaption"></div>
+</div>
+
+<section
+  id="section4"
+  class="certificates-section"
+  data-aos="fade-right"
+  data-aos-duration="800"
+  data-aos-delay="100"
+>
+  <h2>Seminars and Certificates</h2>
+
+  <!-- Filter Buttons -->
+  <div id="filter-buttons" class="filter-buttons">
+    <button class="filter-btn" onclick="filterItems('all')">Show All</button>
+    <button class="filter-btn" onclick="filterItems('seminar')">Seminars</button>
+    <button class="filter-btn" onclick="filterItems('certificate')">
+      Certificates
+    </button>
+  </div>
+
+  <!-- Gallery Container -->
+  <div
+    id="gallery"
+    class="gallery-container"
+    data-aos="fade-up"
+    data-aos-duration="800"
+    data-aos-delay="400"
+  >
+    {
+      items.map((item) => (
+        <div class:list={["gallery-item", item.category]} data-category={item.category}>
+          <img src={item.image} alt={item.alt} />
+          <p set:html={`${item.caption}<br><em>${item.date}</em>`} />
+        </div>
+      ))
+    }
+  </div>
+</section>
