@@ -1,71 +1,11 @@
 ---
-// Phase 2: data held inline. Phase 3 moves this to a content collection.
-const projects = [
-  {
-    title: "First 3D Art",
-    image: "/assets/img/d.jpg",
-    alt: "First 3D Art Project",
-    tags: ["Blender", "3D Art", "Donut"],
-    description:
-      "A basic project for starting a 3D project while making use of Blender's features.",
-    github: "https://github.com/your-username/project-three",
-  },
-  {
-    title: "Digital Freelancer Profiling System - Co-Designer",
-    image: "/assets/img/cp.png",
-    alt: "Capstone Project",
-    tags: ["Django", "HTML", "CSS", "JS", "LeafletJS", "Python", "PostgreSQL", "AllAuth"],
-    description:
-      "A collaborative project for a capstone, involving design and development using Django.",
-    github: "https://github.com/Seanneskie/capstone-app-profile",
-  },
-  {
-    title: "AMAT Stock Analysis - Big Data Project",
-    image: "/assets/img/bg.png",
-    alt: "Big Data Project",
-    tags: ["Django", "SQLite", "Matplotlib", "Python", "Chart.js", "HTML", "CSS"],
-    description:
-      "Analyzing stock data using Django and various data visualization tools.",
-    github: "https://github.com/Seanneskie/bigdata-app-bridget",
-  },
-  {
-    title: "CEMCDO Website",
-    image: "/assets/img/b2.png",
-    alt: "CEMCDO",
-    tags: ["Django", "HTML", "CSS", "JS", "LeafletJS", "Python", "PostgreSQL", "AllAuth"],
-    description:
-      "A collaborative project for CEMCDO, involving design and development using Django.",
-    github: "",
-  },
-  {
-    title: "Pastry Shop Inventory Management System using PHP - Developer",
-    image: "/assets/img/pa.png",
-    alt: "PHP Project",
-    tags: ["PHP", "HTML", "CSS", "JavaScript"],
-    description:
-      "An inventory management system for a pastry shop developed using PHP.",
-    github: "https://github.com/minntchocoo/IS-Hoon",
-  },
-  {
-    title:
-      "CNSM Website - Advance Database Project - Project Proposal Module Prospect",
-    image: "/assets/img/bg_3.jpg",
-    alt: "MERN Stack",
-    tags: ["React", "NodeJS", "Express", "MongoDB"],
-    description:
-      "Development of a database-driven website using the MERN stack for CNSM.",
-    github: "https://github.com/Seanneskie/advDB-CNSM-Website",
-  },
-  {
-    title: "AI Coin Detector using Django and GTM - Model Training",
-    image: "/assets/img/bg_3.jpg",
-    alt: "AI Coin Detector",
-    tags: ["GTM", "Django", "HTML", "OpenCV", "TensorFlow"],
-    description:
-      "Collaborative project on AI-powered coin detection using Django and GTM.",
-    github: "https://github.com/Seanneskie/AI-coin-detector-django",
-  },
-];
+import { getCollection } from "astro:content";
+
+// Add a new project by dropping a .md file in src/content/projects/.
+const entries = await getCollection("projects");
+const projects = entries
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => entry.data);
 ---
 
 <div
