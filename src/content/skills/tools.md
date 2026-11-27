@@ -9,4 +9,9 @@ items:
   - { icon: fas fa-paint-brush, name: Blender }
   - { icon: fas fa-paint-brush, name: Canva }
   - { icon: fas fa-paint-brush, name: Capcut }
+  - { icon: fab fa-github, name: GitHub Actions / CI/CD }
+  - { icon: fas fa-cloud, name: Fly.io }
+  - { icon: fas fa-project-diagram, name: Langfuse }
+  - { icon: fas fa-chart-line, name: Grafana }
+  - { icon: fas fa-chart-line, name: Prometheus }
 ---

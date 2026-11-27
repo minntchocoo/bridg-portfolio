@@ -7,4 +7,6 @@ items:
   - { icon: fas fa-database, name: MySQL }
   - { icon: fas fa-database, name: MongoDB }
   - { icon: fas fa-database, name: PostgreSQL }
+  - { icon: fas fa-project-diagram, name: Prisma }
+  - { icon: fas fa-exchange-alt, name: SQL Migrations }
 ---
