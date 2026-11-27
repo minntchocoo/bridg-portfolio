@@ -8,4 +8,5 @@ items:
   - { icon: fas fa-stream, name: Express }
   - { icon: fab fa-python, name: Python }
   - { icon: fas fa-code, name: Django }
+  - { icon: fas fa-plug, name: LLM Integration & Evaluation }
 ---
